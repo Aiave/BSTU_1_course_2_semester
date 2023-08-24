@@ -1,7 +1,10 @@
 ﻿#include <stdio.h>
+#include <math.h>
 
 int get_minimum_and_maximum_digits(int number, int *min, int *max)
 {
+	number = abs(number);
+
 	while (number > 0)
 	{
 		int digit = number % 10;
@@ -13,6 +16,4 @@ int get_minimum_and_maximum_digits(int number, int *min, int *max)
 
 		number /= 10;
 	}
-
-	printf("\nНаименьшая цифра: %d\nНаибольшая цифра: %d\n", *min, *max);
 }

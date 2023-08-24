@@ -16,5 +16,7 @@ int main()
 	int maximum_digit = 0, minimum_digit = 9;
 	get_minimum_and_maximum_digits(number, &minimum_digit, &maximum_digit);
 
+	printf("\nНаименьшая цифра: %d\nНаибольшая цифра: %d\n", minimum_digit, maximum_digit);
+
 	return 0;
 }
