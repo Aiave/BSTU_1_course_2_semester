@@ -25,8 +25,6 @@ int main()
     {
         //выбор операции
         do {
-            system("cls");
-
             printf("Доступные операции\n");
             printf("\t0 - Выход\n");
             printf("\t1 - Обработка одномерного массива\n");
@@ -57,8 +55,33 @@ int main()
         //инициализация массива
         initialize_array(operation, &array);
 
-        //заполнение массива
+        printf("\n");
 
+        //заполнение массива
+        //по строкам массива
+        for (int i = 0; i < array.length; i++)
+        {
+            //по столбцам строки
+            for (int j = 0; j < array.depth; j++)
+            {
+                //инициализация переменной для хранимого значения
+                int value = 0;
+                //для ввода значений в данном диапазоне (декаративная штука, т.к. у нас 4 символа под число и знак)
+                do {
+                    printf("Введите значение [%d][%d]: ", i, j);
+                    scanf_s("%d", &value);
+                } while (value <= -100 || value >= 1000);
+                //установка значения в массив по указанным индексам
+                set_value(operation, array, i, j, value);
+            }
+        }
+        printf("\n");
+
+        printf("Ваш массив:\n");
+        print_array(operation, array);
+
+        printf("Количество отрицательных чисел в каждой строке:\n");
+        get_negative_count(operation, array);
     }
 	return 0;
 }
